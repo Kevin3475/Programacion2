@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.taller.viewcontroller.PrimaryViewController">
+
+    <!-- Panel superior con logo y título -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 20;" alignment="CENTER" spacing="10">
+            <Label text="🚲 🆂🅸🆂🆃🅴🅼🅰 🅳🅴 🅶🅴🆂🆃🅸🅾🅽 🅳🅴 🆃🅰🅻🅻🅴🆁 🅳🅴 🅱🅸🅲🅸🅲🅻🅴🆃🅰🆂" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: 'Segoe UI';" />
+            <Label text="Programación II - Universidad del Quindío" style="-fx-font-size: 16px; -fx-text-fill: #ecf0f1;" />
+            <Label text="𝐓𝐀𝐋𝐋𝐄𝐑 𝐃𝐄 𝐁𝐈𝐂𝐈𝐂𝐋𝐄𝐓𝐀𝐒 𝐔𝐐" style="-fx-font-size: 18px; -fx-text-fill: #f1c40f; -fx-font-weight: bold;" />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 40;" spacing="20" alignment="CENTER">
+
+            <Label text="MENÚ PRINCIPAL" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #34495e; -fx-border-width: 0 0 3 0; -fx-border-color: #3498db; -fx-padding: 0 0 15 0;" />
+
+            <Button text="👥 GESTIÓN DE CLIENTES" onAction="#onOpenCrudCliente" styleClass="boton-menu" />
+            <Button text="🚲 GESTIÓN DE BICICLETAS" onAction="#onOpenBicicleta" styleClass="boton-menu" />
+            <Button text="🔧 GESTIÓN DE MECÁNICOS" onAction="#onOpenMecanico" styleClass="boton-menu" />
+            <Button text="📋 GESTIÓN DE SERVICIOS" onAction="#onOpenServicio" styleClass="boton-menu" />
+            <Button text="📊 HISTORIAL POR BICICLETA" onAction="#onOpenHistorial" styleClass="boton-menu" />
+            <Button text="📅 ÓRDENES POR FECHA" onAction="#onOpenOrdenesPorFecha" styleClass="boton-menu" />
+            <Button text="📦 VER STOCK DE REPUESTOS" onAction="#onVerStock" styleClass="boton-menu" style="-fx-background-color: #f39c12;" />
+            <Button text="❌ SALIR" onAction="#onSalir" styleClass="boton-menu" style="-fx-background-color: #e74c3c;" />
+        </VBox>
+    </center>
+
+    <!-- Panel inferior con información -->
+    <bottom>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 15;" alignment="CENTER">
+            <Label text="© 2026------trabajo realizado" style="-fx-text-fill: #ecf0f1; -fx-font-size: 12px;" />
+        </HBox>
+    </bottom>
+
+    <stylesheets>
+        <String fx:value="/styles/application.css" />
+    </stylesheets>
+</BorderPane>

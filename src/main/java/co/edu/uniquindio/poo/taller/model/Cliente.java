@@ -4,20 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente extends Persona {
-
     private String telefono;
     private String direccion;
     private List<Servicio> listServicios;
     private List<Bicicleta> listBicicletas;
 
-    public Cliente(String nombre,String id,String telefono,String direccion){
-        super(nombre,id);
-
+    public Cliente(String nombre, String id, String telefono, String direccion) {
+        super(nombre, id);
         this.telefono = telefono;
         this.direccion = direccion;
         this.listServicios = new ArrayList<>();
         this.listBicicletas = new ArrayList<>();
-
     }
 
     public String getTelefono() {
@@ -50,15 +47,5 @@ public class Cliente extends Persona {
 
     public void setListBicicletas(List<Bicicleta> listBicicletas) {
         this.listBicicletas = listBicicletas;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "telefono='" + telefono + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", listServicios=" + listServicios +
-                ", listBicicletas=" + listBicicletas +
-                '}';
     }
 }

@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mecanico extends Persona {
-
     private String especialidad;
     private String numCertificado;
-    private List<Servicio>listServicios;
+    private List<Servicio> listServicios;
 
-    public Mecanico (String nombre, String id, String especialidad, String numCertificado){
-        super(nombre,id);
-
+    public Mecanico(String nombre, String id, String especialidad, String numCertificado) {
+        super(nombre, id);
         this.especialidad = especialidad;
         this.numCertificado = numCertificado;
         this.listServicios = new ArrayList<>();
-
     }
 
     public String getEspecialidad() {
@@ -40,14 +37,5 @@ public class Mecanico extends Persona {
 
     public void setListServicios(List<Servicio> listServicios) {
         this.listServicios = listServicios;
-    }
-
-    @Override
-    public String toString() {
-        return "Mecanico{" +
-                "especialidad='" + especialidad + '\'' +
-                ", numCertificado='" + numCertificado + '\'' +
-                ", listServicios=" + listServicios +
-                '}';
     }
 }

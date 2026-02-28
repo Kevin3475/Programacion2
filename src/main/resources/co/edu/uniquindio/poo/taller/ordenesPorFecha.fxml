@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.taller.viewcontroller.OrdenesPorFechaViewController">
+
+    <!-- Barra de navegación superior -->
+    <top>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 15;" spacing="15" alignment="CENTER_LEFT">
+            <Button text="🏠 MENÚ PRINCIPAL" onAction="#onVolver" styleClass="boton-volver" />
+            <Label text="📅 ÓRDENES POR FECHA" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" HBox.hgrow="ALWAYS" />
+            <Label text="𝐓𝐀𝐋𝐋𝐄𝐑 𝐔𝐐" style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <!-- Contenido central -->
+    <center>
+        <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 20;" spacing="20">
+
+            <!-- Panel de selección de fecha -->
+            <VBox styleClass="panel-formulario" spacing="15">
+                <Label text="🔍 SELECCIONAR FECHA" styleClass="titulo-seccion" />
+
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="Fecha:" style="-fx-font-weight: bold;" />
+                    <DatePicker fx:id="dpFecha" prefWidth="200" />
+                    <Button text="🔍 BUSCAR" onAction="#onBuscar" styleClass="boton-primario" />
+                    <Button text="📅 HOY" onAction="#onHoy" styleClass="boton-secundario" />
+                </HBox>
+
+                <Label fx:id="lblFechaSeleccionada" text="Seleccione una fecha" style="-fx-font-weight: bold; -fx-text-fill: #3498db;" />
+            </VBox>
+
+            <!-- Panel de tabla de órdenes -->
+            <VBox styleClass="panel-tabla" spacing="15" VBox.vgrow="ALWAYS">
+                <Label text="📋 LISTA DE ÓRDENES" styleClass="titulo-seccion" />
+
+                <TableView fx:id="tblOrdenes" VBox.vgrow="ALWAYS" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colHora" prefWidth="80" text="HORA" />
+                        <TableColumn fx:id="colCliente" prefWidth="150" text="CLIENTE" />
+                        <TableColumn fx:id="colBici" prefWidth="120" text="SERIAL BICI" />
+                        <TableColumn fx:id="colMecanico" prefWidth="150" text="MECÁNICO" />
+                        <TableColumn fx:id="colMotivo" prefWidth="150" text="MOTIVO" />
+                        <TableColumn fx:id="colEstado" prefWidth="100" text="ESTADO" />
+                        <TableColumn fx:id="colCosto" prefWidth="100" text="COSTO" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblTotalOrdenes" text="Total órdenes: 0" styleClass="label-info" />
+            </VBox>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <String fx:value="/styles/application.css" />
+    </stylesheets>
+</BorderPane>

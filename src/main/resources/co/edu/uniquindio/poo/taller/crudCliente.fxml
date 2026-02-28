@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.taller.viewcontroller.ClienteViewController">
+
+    <!-- Barra de navegación superior -->
+    <top>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 15;" spacing="15" alignment="CENTER_LEFT">
+            <Button text="🏠 MENÚ PRINCIPAL" onAction="#onVolver" styleClass="boton-volver" />
+            <Label text="GESTIÓN DE CLIENTES" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" HBox.hgrow="ALWAYS" />
+            <Label text="𝐓𝐀𝐋𝐋𝐄𝐑 𝐔𝐐" style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <!-- Contenido central -->
+    <center>
+        <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 20;" spacing="20">
+
+            <!-- Panel de formulario -->
+            <VBox styleClass="panel-formulario" spacing="15">
+                <Label text="📝 REGISTRO DE CLIENTES" styleClass="titulo-seccion" />
+
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" />
+                        <ColumnConstraints minWidth="300" />
+                    </columnConstraints>
+
+                    <Label text="Cédula:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtCedula" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ingrese la cédula" />
+
+                    <Label text="Nombre completo:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtNombre" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ingrese el nombre completo" />
+
+                    <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ingrese el teléfono" />
+
+                    <Label text="Dirección:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtDireccion" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ingrese la dirección" />
+                </GridPane>
+
+                <!-- Botones de acción -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="➕ AGREGAR" onAction="#onAgregarCliente" styleClass="boton-exito" prefWidth="120" />
+                    <Button text="🔄 ACTUALIZAR" onAction="#onActualizarCliente" styleClass="boton-primario" prefWidth="120" />
+                    <Button text="🗑️ ELIMINAR" onAction="#onEliminarCliente" styleClass="boton-peligro" prefWidth="120" />
+                    <Button text="🧹 LIMPIAR" onAction="#onLimpiar" styleClass="boton-secundario" prefWidth="120" />
+                </HBox>
+            </VBox>
+
+            <!-- Panel de tabla -->
+            <VBox styleClass="panel-tabla" spacing="15">
+                <Label text="📋 LISTA DE CLIENTES" styleClass="titulo-seccion" />
+
+                <TableView fx:id="tblListCliente" VBox.vgrow="ALWAYS" prefHeight="250">
+                    <columns>
+                        <TableColumn fx:id="tbcCedula" prefWidth="120" text="CÉDULA" />
+                        <TableColumn fx:id="tbcNombre" prefWidth="200" text="NOMBRE" />
+                        <TableColumn fx:id="tbcTelefono" prefWidth="150" text="TELÉFONO" />
+                        <TableColumn fx:id="tbcDireccion" prefWidth="230" text="DIRECCIÓN" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblTotalClientes" text="Total clientes: 0" styleClass="label-info" />
+            </VBox>
+        </VBox>
+    </center>
+
+
+    <stylesheets>
+        <String fx:value="/styles/application.css" />
+    </stylesheets>
+</BorderPane>

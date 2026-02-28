@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.taller.viewcontroller.BicicletaViewController">
+
+    <top>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 15;" spacing="15" alignment="CENTER_LEFT">
+            <Button text="🏠 MENÚ PRINCIPAL" onAction="#onVolver" styleClass="boton-volver" />
+            <Label text="GESTIÓN DE BICICLETAS" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" HBox.hgrow="ALWAYS" />
+            <Label text="𝐓𝐀𝐋𝐋𝐄𝐑 𝐔𝐐" style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <!-- Contenido central -->
+    <center>
+        <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 20;" spacing="20">
+
+            <!-- Panel de formulario -->
+            <VBox styleClass="panel-formulario" spacing="15">
+                <Label text="🚲 REGISTRO DE BICICLETAS" styleClass="titulo-seccion" />
+
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" />
+                        <ColumnConstraints minWidth="300" />
+                    </columnConstraints>
+
+                    <Label text="Marca:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtMarca" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ej: Trek, Specialized, GW" />
+
+                    <Label text="Tipo:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtTipo" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="campo-texto" promptText="MTB, Ruta, Urbana, Eléctrica" />
+
+                    <Label text="Color:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtColor" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Color de la bicicleta" />
+
+                    <Label text="Serial:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtSerial" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Número de marco/serial" />
+
+                    <Label text="Año:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtAnio" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Ej: 2022" />
+
+                    <!-- ✅ CAMBIADO: ComboBox en lugar de TextField -->
+                    <Label text="Cliente:" GridPane.rowIndex="5" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbCliente" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="300" promptText="Seleccione el propietario" />
+                </GridPane>
+
+                <!-- Botones de acción -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="➕ AGREGAR BICICLETA" onAction="#onAgregar" styleClass="boton-exito" prefWidth="200" />
+                    <Button text="🧹 LIMPIAR" onAction="#onLimpiar" styleClass="boton-secundario" prefWidth="120" />
+                </HBox>
+            </VBox>
+
+            <!-- Panel de tabla -->
+            <VBox styleClass="panel-tabla" spacing="15">
+                <Label text="📋 LISTA DE BICICLETAS" styleClass="titulo-seccion" />
+
+                <TableView fx:id="tblBicicletas" VBox.vgrow="ALWAYS" prefHeight="250">
+                    <columns>
+                        <TableColumn fx:id="colMarca" prefWidth="100" text="MARCA" />
+                        <TableColumn fx:id="colModelo" prefWidth="100" text="TIPO" />
+                        <TableColumn fx:id="colColor" prefWidth="80" text="COLOR" />
+                        <TableColumn fx:id="colSerial" prefWidth="120" text="SERIAL" />
+                        <TableColumn fx:id="colAnio" prefWidth="60" text="AÑO" />
+                        <TableColumn fx:id="colIdCliente" prefWidth="100" text="ID CLIENTE" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblTotalBicicletas" text="Total bicicletas: 0" styleClass="label-info" />
+            </VBox>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <String fx:value="/styles/application.css" />
+    </stylesheets>
+</BorderPane>

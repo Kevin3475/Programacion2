@@ -1,119 +1,68 @@
 package co.edu.uniquindio.poo.taller.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Servicio {
-
-    private String fechaIngreso;
-    private LocalDate hora;
+    private LocalDate fechaIngreso;
+    private LocalDateTime hora;
     private String motivoServicio;
     private String diagnostico;
+    private String trabajosRealizados;
+    private double costoTotal;
     private Mecanico mecanico;
     private Cliente cliente;
     private Bicicleta bicicleta;
     private TipoServicio tipoServicio;
     private Estado estado;
 
-    public Servicio(String fechaIngreso,LocalDate hora,String motivoServicio,String diagnostico,Mecanico mecanico,Cliente cliente,Bicicleta bicicleta,TipoServicio tipoServicio,Estado estado){
-
-
+    public Servicio(LocalDate fechaIngreso, LocalDateTime hora, String motivoServicio,
+                    String diagnostico, String trabajosRealizados, double costoTotal,
+                    Mecanico mecanico, Cliente cliente, Bicicleta bicicleta,
+                    TipoServicio tipoServicio, Estado estado) {
         this.fechaIngreso = fechaIngreso;
         this.hora = hora;
         this.motivoServicio = motivoServicio;
         this.diagnostico = diagnostico;
+        this.trabajosRealizados = trabajosRealizados;
+        this.costoTotal = costoTotal;
         this.mecanico = mecanico;
         this.cliente = cliente;
         this.bicicleta = bicicleta;
         this.tipoServicio = tipoServicio;
         this.estado = estado;
-
-
     }
 
-    public String getFechaIngreso() {
-        return fechaIngreso;
-    }
+    public LocalDate getFechaIngreso() { return fechaIngreso; }
+    public void setFechaIngreso(LocalDate fechaIngreso) { this.fechaIngreso = fechaIngreso; }
 
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
+    public LocalDateTime getHora() { return hora; }
+    public void setHora(LocalDateTime hora) { this.hora = hora; }
 
-    public LocalDate getHora() {
-        return hora;
-    }
+    public String getMotivoServicio() { return motivoServicio; }
+    public void setMotivoServicio(String motivoServicio) { this.motivoServicio = motivoServicio; }
 
-    public void setHora(LocalDate hora) {
-        this.hora = hora;
-    }
+    public String getDiagnostico() { return diagnostico; }
+    public void setDiagnostico(String diagnostico) { this.diagnostico = diagnostico; }
 
-    public String getMotivoServicio() {
-        return motivoServicio;
-    }
+    public String getTrabajosRealizados() { return trabajosRealizados; }
+    public void setTrabajosRealizados(String trabajosRealizados) { this.trabajosRealizados = trabajosRealizados; }
 
-    public void setMotivoServicio(String motivoServicio) {
-        this.motivoServicio = motivoServicio;
-    }
+    public double getCostoTotal() { return costoTotal; }
+    public void setCostoTotal(double costoTotal) { this.costoTotal = costoTotal; }
 
-    public String getDiagnostico() {
-        return diagnostico;
-    }
+    public Mecanico getMecanico() { return mecanico; }
+    public void setMecanico(Mecanico mecanico) { this.mecanico = mecanico; }
 
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
-    }
+    public Cliente getCliente() { return cliente; }
+    public void setCliente(Cliente cliente) { this.cliente = cliente; }
 
-    public Mecanico getMecanico() {
-        return mecanico;
-    }
+    public Bicicleta getBicicleta() { return bicicleta; }
+    public void setBicicleta(Bicicleta bicicleta) { this.bicicleta = bicicleta; }
 
-    public void setMecanico(Mecanico mecanico) {
-        this.mecanico = mecanico;
-    }
+    public TipoServicio getTipoServicio() { return tipoServicio; }
+    public void setTipoServicio(TipoServicio tipoServicio) { this.tipoServicio = tipoServicio; }
 
-    public Bicicleta getBicicleta() {
-        return bicicleta;
-    }
-
-    public void setBicicleta(Bicicleta bicicleta) {
-        this.bicicleta = bicicleta;
-    }
-
-    public TipoServicio getTipoServicio() {
-        return tipoServicio;
-    }
-
-    public void setTipoServicio(TipoServicio tipoServicio) {
-        this.tipoServicio = tipoServicio;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    @Override
-    public String toString() {
-        return "Servicio{" +
-                "fechaIngreso='" + fechaIngreso + '\'' +
-                ", hora=" + hora +
-                ", motivoServicio='" + motivoServicio + '\'' +
-                ", diagnostico='" + diagnostico + '\'' +
-                ", mecanico=" + mecanico +
-                ", cliente=" + cliente +
-                ", bicicleta=" + bicicleta +
-                ", tipoServicio=" + tipoServicio +
-                ", estado=" + estado +
-                '}';
-    }
+    public Estado getEstado() { return estado; }
+    public void setEstado(Estado estado) { this.estado = estado; }
 }

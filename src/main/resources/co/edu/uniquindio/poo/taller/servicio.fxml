@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.taller.viewcontroller.ServicioViewController">
+
+    <!-- Barra de navegación superior -->
+    <top>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 15;" spacing="15" alignment="CENTER_LEFT">
+            <Button text="🏠 MENÚ PRINCIPAL" onAction="#onVolver" styleClass="boton-volver" />
+            <Label text="GESTIÓN DE SERVICIOS" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" HBox.hgrow="ALWAYS" />
+            <Label text="𝐓𝐀𝐋𝐋𝐄𝐑 𝐔𝐐" style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <!-- Contenido central -->
+    <center>
+        <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 20;" spacing="20">
+
+            <!-- Panel de formulario -->
+            <VBox styleClass="panel-formulario" spacing="15">
+                <Label text="📋 REGISTRO DE SERVICIOS" styleClass="titulo-seccion" />
+
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" />
+                        <ColumnConstraints minWidth="300" />
+                    </columnConstraints>
+
+                    <Label text="Fecha:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <DatePicker fx:id="dpFecha" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="300" />
+
+                    <Label text="Cliente:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbCliente" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="300" promptText="Seleccione un cliente" />
+
+                    <Label text="Bicicleta:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbBicicleta" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="300" promptText="Primero seleccione un cliente" />
+
+                    <Label text="Mecánico:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbMecanico" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="300" promptText="Seleccione un mecánico" />
+
+                    <Label text="Motivo:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtMotivo" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Motivo del servicio" />
+
+                    <Label text="Diagnóstico:" GridPane.rowIndex="5" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtDiagnostico" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Diagnóstico" />
+
+                    <Label text="Trabajos:" GridPane.rowIndex="6" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtTrabajos" GridPane.rowIndex="6" GridPane.columnIndex="1" styleClass="campo-texto" promptText="Trabajos realizados" />
+
+                    <Label text="Costo:" GridPane.rowIndex="7" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtCosto" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="campo-texto" promptText="0.0" />
+
+                    <Label text="Tipo Servicio:" GridPane.rowIndex="8" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbTipoServicio" GridPane.rowIndex="8" GridPane.columnIndex="1" prefWidth="300" promptText="Seleccione tipo" />
+
+                    <Label text="Estado:" GridPane.rowIndex="9" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cbEstado" GridPane.rowIndex="9" GridPane.columnIndex="1" prefWidth="300" promptText="Seleccione estado" />
+                </GridPane>
+
+                <!-- Botones de acción -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="➕ REGISTRAR SERVICIO" onAction="#onAgregarServicio" styleClass="boton-exito" prefWidth="200" />
+                    <Button text="🧹 LIMPIAR" onAction="#onLimpiar" styleClass="boton-secundario" prefWidth="120" />
+                </HBox>
+            </VBox>
+
+            <!-- Panel de tabla -->
+            <VBox styleClass="panel-tabla" spacing="15">
+                <Label text="📋 LISTA DE SERVICIOS" styleClass="titulo-seccion" />
+
+                <TableView fx:id="tblServicios" VBox.vgrow="ALWAYS" prefHeight="250">
+                    <columns>
+                        <TableColumn fx:id="colFecha" prefWidth="100" text="FECHA" />
+                        <TableColumn fx:id="colCliente" prefWidth="150" text="CLIENTE" />
+                        <TableColumn fx:id="colBici" prefWidth="150" text="SERIAL BICI" />
+                        <TableColumn fx:id="colEstado" prefWidth="100" text="ESTADO" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblTotalServicios" text="Total servicios: 0" styleClass="label-info" />
+            </VBox>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <String fx:value="/styles/application.css" />
+    </stylesheets>
+</BorderPane>
