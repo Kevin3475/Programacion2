@@ -63,7 +63,7 @@ public class MecanicoViewController {
 
     private void actualizarContador() {
         if (lblTotalMecanicos != null) {
-            lblTotalMecanicos.setText("Total mecánicos: " + listMecanicos.size());
+            lblTotalMecanicos.setText("Cantidad mecanicos mecánicos: " + listMecanicos.size());
         }
     }
 

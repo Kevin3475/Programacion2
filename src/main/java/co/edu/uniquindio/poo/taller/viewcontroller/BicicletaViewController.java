@@ -45,7 +45,7 @@ public class BicicletaViewController {
         configurarSeleccionTabla();
     }
 
-    // ✅ NUEVO: Configurar el ComboBox de clientes
+    //Build: Configurar el ComboBox de clientes
     private void configurarComboBox() {
         // Cargar todos los clientes del taller
         cbCliente.setItems(FXCollections.observableArrayList(App.taller.getListClientes()));
@@ -64,7 +64,7 @@ public class BicicletaViewController {
             }
         });
 
-        // Mostrar un prompt cuando no hay selección
+
         cbCliente.setPromptText("Seleccione un cliente");
     }
 
@@ -80,8 +80,6 @@ public class BicicletaViewController {
         // Cargar datos
         obtenerBicicletas();
         tblBicicletas.setItems(listBicicletas);
-
-        // Configurar altura automática de la tabla
         configurarAlturaTabla();
         actualizarContador();
     }
@@ -110,7 +108,7 @@ public class BicicletaViewController {
         txtSerial.setText(bicicleta.getNumMarco());
         txtAnio.setText(String.valueOf(bicicleta.getAnio()));
 
-        // ✅ BUSCAR Y SELECCIONAR EL CLIENTE EN EL COMBOBOX
+        // BUSCAR Y SELECCIONAR EL CLIENTE EN EL COMBOBOX
         for (Cliente c : cbCliente.getItems()) {
             if (c.getId().equals(bicicleta.getIdCliente())) {
                 cbCliente.setValue(c);
@@ -134,7 +132,7 @@ public class BicicletaViewController {
     void onAgregar() {
         if (validarCampos()) {
             try {
-                // ✅ OBTENER EL CLIENTE SELECCIONADO
+                // obtener cliente que se seleccione
                 Cliente clienteSeleccionado = cbCliente.getValue();
 
                 if (clienteSeleccionado == null) {
@@ -193,7 +191,7 @@ public class BicicletaViewController {
         txtColor.clear();
         txtSerial.clear();
         txtAnio.clear();
-        cbCliente.setValue(null);  // ✅ LIMPIAR COMBOBOX
+        cbCliente.setValue(null);// se hizo para limpiar la tabla
     }
 
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {

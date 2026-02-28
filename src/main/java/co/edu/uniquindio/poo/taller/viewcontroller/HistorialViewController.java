@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.taller.viewcontroller;
 
 import co.edu.uniquindio.poo.taller.App;
-import co.edu.uniquindio.poo.taller.controller.HistorialController;  // ← IMPORTAR CONTROLLER
+import co.edu.uniquindio.poo.taller.controller.HistorialController;
 import co.edu.uniquindio.poo.taller.model.Bicicleta;
 import co.edu.uniquindio.poo.taller.model.Servicio;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -14,7 +14,7 @@ import javafx.util.StringConverter;
 
 public class HistorialViewController {
 
-    private HistorialController historialController;  // ← USAR CONTROLLER
+    private HistorialController historialController;  // controller porque solo maneja datos de taller
     private App app;
 
     @FXML private ComboBox<Bicicleta> cbBicicletas;
@@ -37,7 +37,7 @@ public class HistorialViewController {
 
     @FXML
     void initialize() {
-        historialController = new HistorialController(App.taller);  // ← INICIALIZAR CONTROLLER
+        historialController = new HistorialController(App.taller);  //dar inicializacion de historial controller
         configurarComboBox();
         configurarTabla();
     }
@@ -45,7 +45,7 @@ public class HistorialViewController {
     private void configurarComboBox() {
         // Usar el controller para obtener las bicicletas
         cbBicicletas.setItems(FXCollections.observableArrayList(
-                historialController.obtenerTodasLasBicicletas()  // ← A TRAVÉS DEL CONTROLLER
+                historialController.obtenerTodasLasBicicletas()  
         ));
 
         cbBicicletas.setConverter(new StringConverter<Bicicleta>() {
