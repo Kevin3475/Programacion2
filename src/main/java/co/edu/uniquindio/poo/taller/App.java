@@ -151,19 +151,19 @@ public class App extends Application {
         }
     }
 
-    // ========== DATOS DE INICIALIZACIÓN ==========
+    // Datos de ejemplo
 
     public void inicializarData() {
         try {
             // Clientes
-            Cliente c1 = new Cliente("Juan Pérez", "12345", "555-1234", "Calle 1 #2-3");
-            Cliente c2 = new Cliente("María Gómez", "67890", "555-5678", "Carrera 4 #5-6");
+            Cliente c1 = new Cliente("Mario benneti", "12345", "555-1234", "Calle 1 #2-3");
+            Cliente c2 = new Cliente("juliana maria", "67890", "555-5678", "Carrera 4 #5-6");
             taller.agregarCliente(c1);
             taller.agregarCliente(c2);
 
             // Mecánicos
-            Mecanico m1 = new Mecanico("Carlos Ruiz", "M001", "Frenos y transmisión", "CERT001");
-            Mecanico m2 = new Mecanico("Ana López", "M002", "Suspensión", "CERT002");
+            Mecanico m1 = new Mecanico("Sebastian Silva", "M001", "Frenos y transmisión", "CERT001");
+            Mecanico m2 = new Mecanico("Facundo Hernandez", "M002", "Suspensión", "CERT002");
             taller.agregarMecanico(m1);
             taller.agregarMecanico(m2);
 

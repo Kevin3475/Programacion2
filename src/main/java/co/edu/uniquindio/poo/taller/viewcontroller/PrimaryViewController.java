@@ -42,7 +42,7 @@ public class PrimaryViewController {
         String alerta = App.taller.getAlertaStock();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("📦 Stock de Repuestos");
-        alert.setHeaderText("ESTADO DEL INVENTARIO");
+        alert.setHeaderText("Alerta de inventario");
         alert.setContentText(alerta);
         alert.showAndWait();
     }
