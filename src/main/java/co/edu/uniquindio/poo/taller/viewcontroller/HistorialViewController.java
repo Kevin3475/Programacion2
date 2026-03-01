@@ -12,6 +12,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
 
+/**
+ * clase viewcontroller de la clase historial
+ */
 public class HistorialViewController {
 
     private HistorialController historialController;  // controller porque solo maneja datos de taller
@@ -69,6 +72,9 @@ public class HistorialViewController {
         });
     }
 
+    /**
+     * metodo para configurar la tabla automaticamente
+     */
     private void configurarTabla() {
         colFecha.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getFechaIngreso().toString()));
@@ -88,6 +94,10 @@ public class HistorialViewController {
         tblHistorial.setItems(listHistorial);
     }
 
+    /**
+     * metodo para cargar el historial
+     * @param bicicleta
+     */
     private void cargarHistorial(Bicicleta bicicleta) {
         lblSerial.setText(bicicleta.getNumMarco());
         lblMarca.setText(bicicleta.getMarca());
@@ -102,6 +112,9 @@ public class HistorialViewController {
         lblTotalServicios.setText("Total servicios: " + listHistorial.size());
     }
 
+    /**
+     * boton de busqyeda
+     */
     @FXML
     void onBuscar() {
         String texto = cbBicicletas.getEditor().getText();
@@ -117,6 +130,9 @@ public class HistorialViewController {
         }
     }
 
+    /**
+     *  boton para limpiar
+     */
     @FXML
     void onLimpiar() {
         cbBicicletas.setValue(null);
@@ -129,11 +145,20 @@ public class HistorialViewController {
         lblTotalServicios.setText("Total servicios: 0");
     }
 
+    /**
+     * boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para mostrar una alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

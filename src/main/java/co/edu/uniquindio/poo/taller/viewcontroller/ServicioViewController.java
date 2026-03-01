@@ -11,6 +11,9 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * clase viewController de la clase servicio
+ */
 public class ServicioViewController {
 
     private ServicioController servicioController;
@@ -23,7 +26,6 @@ public class ServicioViewController {
     @FXML private TextField txtTrabajos;
     @FXML private TextField txtCosto;
 
-    // ✅ NUEVO: ComboBoxes en lugar de TextFields
     @FXML private ComboBox<Cliente> cbCliente;
     @FXML private ComboBox<Bicicleta> cbBicicleta;
     @FXML private ComboBox<Mecanico> cbMecanico;
@@ -64,8 +66,10 @@ public class ServicioViewController {
         actualizarContador();
     }
 
+    /**
+     * metodo para
+     */
     private void configurarComboBoxes() {
-        // ✅ Configurar ComboBox de Clientes
         cbCliente.setItems(FXCollections.observableArrayList(App.taller.getListClientes()));
         cbCliente.setConverter(new javafx.util.StringConverter<Cliente>() {
             @Override
@@ -76,7 +80,6 @@ public class ServicioViewController {
             public Cliente fromString(String string) { return null; }
         });
 
-        // ✅ Configurar ComboBox de Mecánicos
         cbMecanico.setItems(FXCollections.observableArrayList(App.taller.getListMecanicos()));
         cbMecanico.setConverter(new javafx.util.StringConverter<Mecanico>() {
             @Override
@@ -87,7 +90,6 @@ public class ServicioViewController {
             public Mecanico fromString(String string) { return null; }
         });
 
-        // ✅ Cuando se selecciona un cliente, filtrar sus bicicletas
         cbCliente.setOnAction(e -> {
             Cliente cliente = cbCliente.getValue();
             if (cliente != null) {
@@ -99,7 +101,6 @@ public class ServicioViewController {
             }
         });
 
-        // ✅ Configurar ComboBox de Bicicletas (inicialmente deshabilitado)
         cbBicicleta.setDisable(true);
         cbBicicleta.setConverter(new javafx.util.StringConverter<Bicicleta>() {
             @Override
@@ -111,17 +112,26 @@ public class ServicioViewController {
         });
     }
 
+    /**
+     * metodo para llamar la lista de servicios
+     */
     private void obtenerServicios() {
         listServicios.clear();
         listServicios.addAll(servicioController.obtenerListaServicios());
     }
 
+    /**
+     * metodo para actualizar el contador de servicios
+     */
     private void actualizarContador() {
         if (lblTotalServicios != null) {
             lblTotalServicios.setText("Total servicios: " + listServicios.size());
         }
     }
 
+    /**
+     * boton para agregar un servivio
+     */
     @FXML
     void onAgregarServicio() {
         try {
@@ -162,6 +172,10 @@ public class ServicioViewController {
         }
     }
 
+    /**
+     * metodo para validar los campos obligatorios
+     * @return
+     */
     private boolean validarCampos() {
         if (txtMotivo.getText().isEmpty() || txtDiagnostico.getText().isEmpty() ||
                 txtTrabajos.getText().isEmpty() || txtCosto.getText().isEmpty() ||
@@ -173,16 +187,24 @@ public class ServicioViewController {
         return true;
     }
 
+    /**
+     * boton para limpiar los campos
+     */
     @FXML
     void onLimpiar() {
         limpiarCampos();
     }
-
+    /**
+    boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para limpiar los campos
+     */
     private void limpiarCampos() {
         txtMotivo.clear();
         txtDiagnostico.clear();
@@ -200,6 +222,12 @@ public class ServicioViewController {
         cbEstado.setValue(null);
     }
 
+    /**
+     * metodo para mostrar una alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

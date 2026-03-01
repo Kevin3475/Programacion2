@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * clase viewController de la clase cliente
+ */
 public class ClienteViewController {
 
     private ClienteController clienteController;
@@ -54,6 +57,9 @@ public class ClienteViewController {
         initView();
     }
 
+    /**
+     * metodo para inicializar la vista
+     */
     private void initView() {
         initDataBinding();
         obtenerClientes();
@@ -61,6 +67,9 @@ public class ClienteViewController {
         listenerSelection();
     }
 
+    /**
+     * metodo para
+     */
     private void initDataBinding() {
         tbcCedula.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getId()));
@@ -72,11 +81,17 @@ public class ClienteViewController {
                 new SimpleStringProperty(cellData.getValue().getDireccion()));
     }
 
+    /**
+     * metodo para llamar la lista de clientes
+     */
     private void obtenerClientes() {
         listClientes.clear();
         listClientes.addAll(clienteController.obtenerListaClientes());
     }
 
+    /**
+     * metodo para
+     */
     private void listenerSelection() {
         tblListCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedCliente = newSelection;
@@ -84,6 +99,10 @@ public class ClienteViewController {
         });
     }
 
+    /**
+     * metodo para mostrar la informacion de un cliente
+     * @param cliente
+     */
     private void mostrarInformacionCliente(Cliente cliente) {
         if (cliente != null) {
             txtCedula.setText(cliente.getId());
@@ -93,6 +112,9 @@ public class ClienteViewController {
         }
     }
 
+    /**
+     * boton para agregar un cliente
+     */
     @FXML
     void onAgregarCliente() {
         if (validarCampos()) {
@@ -107,6 +129,9 @@ public class ClienteViewController {
         }
     }
 
+    /**
+     * boton para actualizar un cliente
+     */
     @FXML
     void onActualizarCliente() {
         if (selectedCliente != null) {
@@ -122,6 +147,9 @@ public class ClienteViewController {
         }
     }
 
+    /**
+     * boton para eliminar un cliente
+     */
     @FXML
     void onEliminarCliente() {
         if (selectedCliente != null) {
@@ -135,16 +163,25 @@ public class ClienteViewController {
         }
     }
 
+    /**
+     * boton para limpiar la seleccion
+     */
     @FXML
     void onLimpiar() {
         limpiarSeleccion();
     }
-
+    /**
+     * boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para validar los campos abligatorios
+     * @return
+     */
     private boolean validarCampos() {
         if (txtCedula.getText().isEmpty() || txtNombre.getText().isEmpty() ||
                 txtTelefono.getText().isEmpty() || txtDireccion.getText().isEmpty()) {
@@ -154,6 +191,10 @@ public class ClienteViewController {
         return true;
     }
 
+    /**
+     * metodo para llamar un cliente
+     * @return
+     */
     private Cliente buildCliente() {
         return new Cliente(
                 txtNombre.getText(),
@@ -163,11 +204,17 @@ public class ClienteViewController {
         );
     }
 
+    /**
+     * metodo para limpiar una seleccion
+     */
     private void limpiarSeleccion() {
         tblListCliente.getSelectionModel().clearSelection();
         limpiarCampos();
     }
 
+    /**
+     * metodo para limpiar los campos
+     */
     private void limpiarCampos() {
         txtCedula.clear();
         txtNombre.clear();
@@ -175,6 +222,12 @@ public class ClienteViewController {
         txtDireccion.clear();
     }
 
+    /**
+     * metodo para mostrar un alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

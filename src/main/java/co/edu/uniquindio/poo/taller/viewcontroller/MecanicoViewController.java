@@ -9,6 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+/**
+ * clase viewController de la clase mecanico
+ */
 public class MecanicoViewController {
 
     private MecanicoController mecanicoController;
@@ -56,17 +59,27 @@ public class MecanicoViewController {
         actualizarContador();
     }
 
+    /**
+     * metodo para llamar la lista de mecanicos
+     */
     private void obtenerMecanicos() {
         listMecanicos.clear();
         listMecanicos.addAll(mecanicoController.obtenerListaMecanicos());
     }
 
+    /**
+     * metodo para actualizar el contador de mecanicos
+     */
     private void actualizarContador() {
         if (lblTotalMecanicos != null) {
             lblTotalMecanicos.setText("Cantidad mecanicos mecánicos: " + listMecanicos.size());
         }
     }
 
+    /**
+     * metodo para mostrar la informacion de un mecanico
+     * @param mecanico
+     */
     private void mostrarInformacionMecanico(Mecanico mecanico) {
         if (mecanico != null) {
             txtId.setText(mecanico.getId());
@@ -76,6 +89,9 @@ public class MecanicoViewController {
         }
     }
 
+    /**
+     * boton para agregar mecanicos
+     * */
     @FXML
     void onAgregar() {
         if (validarCampos()) {
@@ -97,6 +113,9 @@ public class MecanicoViewController {
         }
     }
 
+    /**
+     * boton para actualizar mecanicos
+     */
     @FXML
     void onActualizar() {
         if (selectedMecanico != null && validarCampos()) {
@@ -106,6 +125,9 @@ public class MecanicoViewController {
         }
     }
 
+    /**
+     * boton para eliminar mecanicos
+     */
     @FXML
     void onEliminar() {
         if (selectedMecanico != null) {
@@ -118,6 +140,10 @@ public class MecanicoViewController {
         }
     }
 
+    /**
+     * metodo para validar los campos obligatorios
+     * @return
+     */
     private boolean validarCampos() {
         if (txtId.getText().isEmpty() || txtNombre.getText().isEmpty() ||
                 txtEspecialidad.getText().isEmpty() || txtCertificacion.getText().isEmpty()) {
@@ -127,22 +153,34 @@ public class MecanicoViewController {
         return true;
     }
 
+    /**
+     * boton para limpiar la seleccion
+     */
     @FXML
     void onLimpiar() {
         limpiarSeleccion();
     }
 
+    /**
+     * boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para limpiar la seleccion
+     */
     private void limpiarSeleccion() {
         tblMecanicos.getSelectionModel().clearSelection();
         limpiarCampos();
         selectedMecanico = null;
     }
 
+    /**
+     * metodo para limpiar los campos
+     */
     private void limpiarCampos() {
         txtId.clear();
         txtNombre.clear();
@@ -150,6 +188,12 @@ public class MecanicoViewController {
         txtCertificacion.clear();
     }
 
+    /**
+     * metodo para mostrar una alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

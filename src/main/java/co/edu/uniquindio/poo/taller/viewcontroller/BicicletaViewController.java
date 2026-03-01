@@ -13,6 +13,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
 
+/**
+ * clase viewController de la clase bicicleta
+ */
 public class BicicletaViewController {
 
     private BicicletaController bicicletaController;
@@ -25,7 +28,7 @@ public class BicicletaViewController {
     @FXML private TextField txtColor;
     @FXML private TextField txtSerial;
     @FXML private TextField txtAnio;
-    @FXML private ComboBox<Cliente> cbCliente;  // ✅ CAMBIADO DE TextField A ComboBox
+    @FXML private ComboBox<Cliente> cbCliente;
 
     @FXML private TableView<Bicicleta> tblBicicletas;
     @FXML private TableColumn<Bicicleta, String> colMarca;
@@ -45,7 +48,6 @@ public class BicicletaViewController {
         configurarSeleccionTabla();
     }
 
-    //Build: Configurar el ComboBox de clientes
     private void configurarComboBox() {
         // Cargar todos los clientes del taller
         cbCliente.setItems(FXCollections.observableArrayList(App.taller.getListClientes()));
@@ -68,6 +70,9 @@ public class BicicletaViewController {
         cbCliente.setPromptText("Seleccione un cliente");
     }
 
+    /**
+     * metodo par configurar la tabla
+     */
     private void initView() {
         // Configurar columnas
         colMarca.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMarca()));
@@ -84,6 +89,9 @@ public class BicicletaViewController {
         actualizarContador();
     }
 
+    /**
+     * metodo para configurar la altura de la tabla
+     */
     private void configurarAlturaTabla() {
         tblBicicletas.setFixedCellSize(35);
         tblBicicletas.prefHeightProperty().bind(
@@ -92,6 +100,9 @@ public class BicicletaViewController {
         );
     }
 
+    /**
+     * metodo para configuara automaticamente la tabla de bicicletas
+     */
     private void configurarSeleccionTabla() {
         tblBicicletas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedBicicleta = newSelection;
@@ -101,6 +112,10 @@ public class BicicletaViewController {
         });
     }
 
+    /**
+     * metodo para mostrar la informacion de una bicicleta
+     * @param bicicleta
+     */
     private void mostrarInformacionBicicleta(Bicicleta bicicleta) {
         txtMarca.setText(bicicleta.getMarca());
         txtTipo.setText(bicicleta.getTipo());
@@ -117,17 +132,26 @@ public class BicicletaViewController {
         }
     }
 
+    /**
+     * metodo para llamar la lista de bicicletas
+     */
     private void obtenerBicicletas() {
         listBicicletas.clear();
         listBicicletas.addAll(bicicletaController.obtenerListaBicicletas());
     }
 
+    /**
+     * metodo para actualizar el contador de bicicletas
+     */
     private void actualizarContador() {
         if (lblTotalBicicletas != null) {
             lblTotalBicicletas.setText("Total bicicletas: " + listBicicletas.size());
         }
     }
 
+    /**
+     * boton para agregar bicicletas a clientes
+     */
     @FXML
     void onAgregar() {
         if (validarCampos()) {
@@ -163,6 +187,10 @@ public class BicicletaViewController {
         }
     }
 
+    /**
+     * metodo para validar los datos obligatorios
+     * @return
+     */
     private boolean validarCampos() {
         if (txtMarca.getText().isEmpty() || txtTipo.getText().isEmpty() ||
                 txtColor.getText().isEmpty() || txtSerial.getText().isEmpty() ||
@@ -173,6 +201,9 @@ public class BicicletaViewController {
         return true;
     }
 
+    /**
+     * boton para limpiar los datos
+     */
     @FXML
     void onLimpiar() {
         limpiarCampos();
@@ -180,11 +211,17 @@ public class BicicletaViewController {
         selectedBicicleta = null;
     }
 
+    /**
+     * boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para limpiar los campos
+     */
     private void limpiarCampos() {
         txtMarca.clear();
         txtTipo.clear();
@@ -194,6 +231,12 @@ public class BicicletaViewController {
         cbCliente.setValue(null);// se hizo para limpiar la tabla
     }
 
+    /**
+     * metodo para mostrar una alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

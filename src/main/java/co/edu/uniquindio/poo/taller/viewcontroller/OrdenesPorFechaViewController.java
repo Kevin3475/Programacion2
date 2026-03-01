@@ -12,6 +12,9 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * clase viewController de la clase ordenesPörFecha
+ */
 public class OrdenesPorFechaViewController {
 
     private OrdenesController ordenesController;  // ← USAR CONTROLLER
@@ -41,6 +44,9 @@ public class OrdenesPorFechaViewController {
         buscarPorFecha();
     }
 
+    /**
+     * metodo para configurar l atabla automaticamente
+     */
     private void configurarTabla() {
         colHora.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getHora().toLocalTime().toString()));
@@ -60,17 +66,26 @@ public class OrdenesPorFechaViewController {
         tblOrdenes.setItems(listOrdenes);
     }
 
+    /**
+     * boton para buscar
+     */
     @FXML
     void onBuscar() {
         buscarPorFecha();
     }
 
+    /**
+     * boton para buscar por hoy
+     */
     @FXML
     void onHoy() {
         dpFecha.setValue(LocalDate.now());
         buscarPorFecha();
     }
 
+    /**
+     * metodo para buscar por fecha
+     */
     private void buscarPorFecha() {
         LocalDate fecha = dpFecha.getValue();
         if (fecha == null) {
@@ -80,17 +95,25 @@ public class OrdenesPorFechaViewController {
 
         lblFechaSeleccionada.setText("Órdenes del: " + fecha.format(formatter));
 
-        // USAR CONTROLLER PARA OBTENER LOS DATOS
         listOrdenes.clear();
         listOrdenes.addAll(ordenesController.obtenerOrdenesPorFecha(fecha));
         lblTotalOrdenes.setText("Total órdenes: " + listOrdenes.size());
     }
 
+    /**
+     * boton para volver
+     */
     @FXML
     void onVolver() {
         app.openViewPrincipal();
     }
 
+    /**
+     * metodo para mostrar una alerta
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Clase App
+ */
 public class App extends Application {
 
     private Stage primaryStage;
@@ -23,6 +26,9 @@ public class App extends Application {
         openViewPrincipal();
     }
 
+    /**
+     *metodo para abrir la vista principal
+     */
     public void openViewPrincipal() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -41,6 +47,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * metodo para abrir la vista de cliente
+     */
     public void openCrudCliente() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -59,6 +68,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * metodo para abrir la vista de bicicleta
+     */
     public void openBicicleta() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -77,6 +89,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * metodo para abrir la vista de mecanico
+     */
     public void openMecanico() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -95,6 +110,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * metodo para abrir la avista de servicio
+     */
     public void openServicio() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -113,8 +131,9 @@ public class App extends Application {
         }
     }
 
-    // ========== NUEVAS VISTAS ==========
-
+    /**
+     * metodo para abrir la vista de historial
+     */
     public void openHistorial() {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -133,6 +152,9 @@ public class App extends Application {
         }
     }
 
+    /**
+     * metodo para abrir la vista de ordenes por fecha
+     */
     public void openOrdenesPorFecha() {
         try {
             FXMLLoader loader = new FXMLLoader(
